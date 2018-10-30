@@ -6,8 +6,8 @@ _pgcli()
 
   case "$prev" in
     -D)
-      local tunnels=$(pgcli --list-dsn | awk '{print $1}')
-      COMPREPLY=( $(compgen -W "$tunnels" -- $cur) )
+      local dsns=$(pgcli --list-dsn | awk '{print $1}')
+      COMPREPLY=( $(compgen -W "$dsns" -- $cur) )
       ;;
     *)
       COMPREPLY=( $(compgen -W "$opts" -- $cur) )
